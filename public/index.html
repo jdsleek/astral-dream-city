@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Astral Dream City — BASA 2026</title>
+<meta name="description" content="Astral Dream City — A mall showcasing our passions, products & purpose. Handmade goods, café, games & more. LoveWorld School OPIC, Friday 19th June 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --purple:#3B1E8E;--purple-mid:#5B35C8;--purple-light:#8B67E8;
+  --purple-pale:#F0ECFD;--purple-deep:#1A0848;
+  --gold:#C8952A;--gold-light:#F0C44A;--gold-pale:#FDF8EC;
+  --cream:#FEFCF8;--text-dark:#1A0F3C;--text-mid:#4A3B7A;
+  --text-muted:#7B6CA8;--white:#FFFFFF;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(15,6,48,0.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(200,149,42,0.12)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo .a-mark{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:var(--gold-light);line-height:1}
+.nav-logo .brand-name{font-family:'Playfair Display',serif;font-size:15px;color:var(--white);letter-spacing:0.1em}
+.nav-links{list-style:none;display:flex;gap:28px;align-items:center}
+.nav-links li a{text-decoration:none;color:rgba(255,255,255,0.7);font-size:14px;font-weight:500;letter-spacing:0.03em;transition:color 0.2s}
+.nav-links li a:hover{color:var(--gold-light)}
+.nav-cta{background:var(--gold);color:var(--purple);padding:9px 20px;border-radius:100px;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s;white-space:nowrap}
+.nav-cta:hover{background:var(--gold-light)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:all 0.3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(12,4,38,0.98);backdrop-filter:blur(16px);padding:24px 32px;z-index:199;border-bottom:1px solid rgba(200,149,42,0.15);flex-direction:column;gap:20px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:18px;font-weight:500;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.mobile-menu a:last-child{border-bottom:none}
+.mobile-menu .nav-cta{text-align:center;margin-top:8px;padding:14px;font-size:16px}
+
+/* ── COUNTDOWN ── */
+.countdown-bar{background:linear-gradient(90deg,var(--gold) 0%,#E8A830 100%);padding:10px 40px;text-align:center;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;position:relative;z-index:198}
+.countdown-bar p{font-size:14px;font-weight:600;color:var(--purple-deep)}
+.countdown-units{display:flex;gap:6px}
+.c-unit{background:var(--purple);color:var(--white);padding:4px 10px;border-radius:8px;font-size:13px;font-weight:700;min-width:52px;text-align:center}
+.c-unit span{display:block;font-size:10px;font-weight:500;opacity:0.7;text-transform:uppercase}
+
+/* ── HERO ── */
+.hero{min-height:100vh;background:linear-gradient(145deg,#080218 0%,#120640 30%,#1E0A5C 55%,#2A1275 75%,#160840 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 20% 15%,rgba(200,149,42,0.1),transparent),radial-gradient(ellipse 50% 60% at 80% 80%,rgba(91,53,200,0.25),transparent);pointer-events:none}
+.stars-layer{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.star{position:absolute;background:#fff;border-radius:50%;animation:twinkle var(--dur,3s) var(--del,0s) infinite alternate}
+@keyframes twinkle{0%{opacity:0.1;transform:scale(0.8)}100%{opacity:1;transform:scale(1)}}
+.moon{position:absolute;top:90px;left:5%;width:80px;height:80px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFFAEE,#E8CB70 55%,#9A7A28);box-shadow:0 0 0 2px rgba(255,248,200,0.3),0 0 40px rgba(232,203,112,0.35),0 0 80px rgba(232,203,112,0.1)}
+.hero-inner{position:relative;z-index:1}
+.hero-eyebrow{font-size:12px;letter-spacing:0.25em;color:rgba(240,196,74,0.75);font-weight:600;text-transform:uppercase;margin-bottom:16px}
+.hero-a-wrap{position:relative;display:inline-block;margin-bottom:-16px}
+.hero-a{font-family:'Playfair Display',serif;font-size:clamp(100px,16vw,180px);font-weight:900;line-height:1;background:linear-gradient(135deg,var(--gold-light) 0%,var(--gold) 50%,#7A500A 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 40px rgba(200,149,42,0.3))}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(40px,7vw,76px);font-weight:900;color:var(--white);line-height:1.05;margin-bottom:10px}
+.hero-title em{color:var(--gold-light);font-style:normal}
+.hero-tagline{font-size:13px;color:rgba(255,255,255,0.45);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:20px}
+.hero-sub{font-size:clamp(15px,2vw,18px);color:rgba(255,255,255,0.7);max-width:480px;margin:0 auto 36px;line-height:1.65}
+.hero-pillars{display:flex;gap:10px;justify-content:center;margin-bottom:40px;flex-wrap:wrap}
+.pillar{padding:7px 18px;border:1px solid rgba(200,149,42,0.35);border-radius:100px;font-size:12px;color:rgba(240,196,74,0.85);letter-spacing:0.08em;text-transform:uppercase;font-weight:600}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-gold{background:var(--gold);color:var(--purple-deep);padding:15px 34px;border-radius:100px;font-size:15px;font-weight:700;text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:'Inter',sans-serif}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{border:1.5px solid rgba(255,255,255,0.25);color:var(--white);padding:15px 34px;border-radius:100px;font-size:15px;font-weight:500;text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+.btn-outline:hover{border-color:var(--gold-light);color:var(--gold-light)}
+.event-card{margin-top:52px;display:inline-flex;align-items:stretch;gap:0;background:rgba(255,255,255,0.05);border:1px solid rgba(200,149,42,0.2);border-radius:18px;overflow:hidden}
+.event-date{background:var(--gold);padding:20px 28px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.event-date .d-num{font-family:'Playfair Display',serif;font-size:42px;font-weight:900;color:var(--purple-deep);line-height:1}
+.event-date .d-month{font-size:11px;font-weight:700;color:rgba(26,8,72,0.7);letter-spacing:0.1em;text-transform:uppercase;margin-top:2px}
+.event-info{padding:20px 28px;text-align:left;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.event-day{font-size:13px;font-weight:700;color:var(--gold-light);letter-spacing:0.08em;text-transform:uppercase}
+.event-venue{font-size:17px;font-weight:700;color:var(--white)}
+.event-loc{font-size:13px;color:rgba(255,255,255,0.45)}
+.gift-banner{margin-top:24px;background:rgba(200,149,42,0.12);border:1px solid rgba(200,149,42,0.3);border-radius:12px;padding:12px 24px;display:inline-flex;align-items:center;gap:10px;font-size:13px;color:rgba(240,196,74,0.9);font-weight:500}
+
+/* ── ABOUT ── */
+.about{background:var(--white);padding:96px 40px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:56px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat-card{background:var(--purple-pale);border-radius:16px;padding:24px;text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:var(--purple)}
+.stat-label{font-size:12px;color:var(--text-muted);margin-top:4px;font-weight:500}
+.feature-list{list-style:none;margin-top:28px;display:flex;flex-direction:column;gap:14px}
+.feature-list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--text-mid);line-height:1.5}
+.fdot{width:8px;height:8px;min-width:8px;border-radius:50%;background:var(--gold);margin-top:6px}
+.about-visual{background:linear-gradient(145deg,#0F0438,#2A1480);border-radius:24px;padding:48px 40px;text-align:center;position:relative;overflow:hidden}
+.about-visual::before{content:'';position:absolute;bottom:-20%;right:-10%;width:200px;height:200px;border-radius:50%;background:rgba(200,149,42,0.12)}
+.av-a{font-family:'Playfair Display',serif;font-size:160px;font-weight:900;background:linear-gradient(135deg,var(--gold-light),var(--gold),#7A500A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;position:relative;z-index:1}
+.av-label{font-size:12px;letter-spacing:0.15em;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-top:12px;position:relative;z-index:1;line-height:1.6}
+.av-pillars{display:flex;justify-content:center;gap:12px;margin-top:20px;flex-wrap:wrap;position:relative;z-index:1}
+.av-pill{background:rgba(200,149,42,0.15);border:1px solid rgba(200,149,42,0.3);color:var(--gold-light);padding:6px 16px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase}
+
+/* ── MENU ── */
+.menu-section{background:var(--purple-pale);padding:96px 40px}
+.menu-tabs{display:flex;gap:8px;margin:40px 0 40px;flex-wrap:wrap}
+.tab-btn{padding:10px 22px;border-radius:100px;border:1.5px solid rgba(139,103,232,0.4);background:transparent;color:var(--purple);font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif}
+.tab-btn:hover,.tab-btn.active{background:var(--purple);color:var(--white);border-color:var(--purple)}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:18px}
+.menu-card{background:var(--white);border-radius:18px;padding:22px 18px 18px;transition:all 0.22s;border:1.5px solid transparent;position:relative}
+.menu-card:hover{border-color:var(--purple-light);transform:translateY(-4px);box-shadow:0 12px 36px rgba(59,30,142,0.1)}
+.menu-emoji{font-size:38px;margin-bottom:10px;display:block}
+.menu-name{font-size:14px;font-weight:600;color:var(--text-dark);margin-bottom:3px;padding-right:32px}
+.menu-cat{font-size:11px;color:var(--text-muted)}
+.menu-price{font-size:17px;font-weight:700;color:var(--purple);margin-top:10px}
+.menu-add{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;background:var(--purple);color:var(--white);border:none;font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;font-family:'Inter',sans-serif}
+.menu-add:hover{background:var(--purple-mid);transform:scale(1.15)}
+.menu-badge{position:absolute;top:14px;right:52px;background:var(--gold);color:var(--purple-deep);font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;display:none}
+.menu-badge.show{display:block}
+
+/* ── SHOP ── */
+.shop-section{background:var(--white);padding:96px 40px}
+.shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:22px;margin-top:48px}
+.shop-card{background:var(--purple-pale);border-radius:20px;overflow:hidden;transition:all 0.22s}
+.shop-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(59,30,142,0.14)}
+.shop-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:64px;background:linear-gradient(135deg,rgba(59,30,142,0.06),rgba(91,53,200,0.1))}
+.shop-info{padding:18px}
+.shop-tag{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:5px}
+.shop-name{font-size:15px;font-weight:600;color:var(--text-dark);margin-bottom:4px}
+.shop-desc{font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:12px}
+.shop-row{display:flex;align-items:center;justify-content:space-between}
+.shop-price{font-size:16px;font-weight:700;color:var(--purple)}
+.shop-btn{padding:7px 16px;background:var(--purple);color:var(--white);border:none;border-radius:100px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.2s;font-family:'Inter',sans-serif}
+.shop-btn:hover{background:var(--purple-mid)}
+
+/* ── CART BAR ── */
+.cart-bar{position:fixed;bottom:0;left:0;right:0;z-index:190;background:var(--purple);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;gap:16px;transform:translateY(100%);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);box-shadow:0 -4px 24px rgba(0,0,0,0.3)}
+.cart-bar.show{transform:translateY(0)}
+.cart-left{display:flex;align-items:center;gap:14px}
+.cart-icon{font-size:22px}
+.cart-info{color:var(--white);font-size:14px;font-weight:500}
+.cart-info strong{color:var(--gold-light)}
+.cart-items-preview{display:flex;gap:6px;flex-wrap:wrap;max-width:300px}
+.cart-chip{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8);padding:3px 10px;border-radius:100px;font-size:11px;display:flex;align-items:center;gap:5px}
+.cart-chip button{background:none;border:none;color:rgba(255,255,255,0.5);cursor:pointer;font-size:13px;line-height:1;padding:0;display:flex;align-items:center}
+.cart-chip button:hover{color:var(--white)}
+.cart-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.cart-total-label{color:rgba(255,255,255,0.6);font-size:13px}
+.cart-total-amt{color:var(--gold-light);font-size:18px;font-weight:700;font-family:'Playfair Display',serif}
+.cart-cta{background:var(--gold);color:var(--purple-deep);padding:12px 24px;border-radius:100px;font-size:14px;font-weight:700;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;white-space:nowrap}
+.cart-cta:hover{background:var(--gold-light)}
+.cart-clear{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);border:none;padding:10px 14px;border-radius:100px;font-size:12px;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s}
+.cart-clear:hover{background:rgba(255,255,255,0.15);color:var(--white)}
+
+/* ── MODAL ── */
+.overlay{position:fixed;inset:0;background:rgba(8,2,24,0.75);z-index:300;display:none;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
+.overlay.open{display:flex}
+.modal{background:var(--white);border-radius:24px;padding:36px;width:100%;max-width:520px;position:relative;max-height:90vh;overflow-y:auto}
+.modal-close{position:absolute;top:16px;right:16px;background:var(--purple-pale);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;color:var(--text-muted);display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.modal-close:hover{background:var(--purple);color:var(--white)}
+.modal h2{font-family:'Playfair Display',serif;font-size:26px;color:var(--text-dark);margin-bottom:4px}
+.modal-sub{font-size:13px;color:var(--text-muted);margin-bottom:24px}
+.order-summary{background:var(--purple-pale);border-radius:14px;padding:18px;margin-bottom:22px}
+.order-summary h3{font-size:13px;font-weight:700;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px}
+.order-item-row{display:flex;align-items:center;justify-content:space-between;font-size:14px;color:var(--text-mid);padding:7px 0;border-bottom:1px solid rgba(59,30,142,0.08);gap:8px}
+.order-item-row:last-of-type{border-bottom:none}
+.oi-name{flex:1}
+.oi-qty{display:flex;align-items:center;gap:8px}
+.oi-qty button{width:24px;height:24px;border-radius:50%;background:var(--purple);color:var(--white);border:none;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
+.oi-qty button:hover{background:var(--purple-mid)}
+.oi-qty span{min-width:20px;text-align:center;font-weight:600}
+.oi-price{font-weight:600;color:var(--purple);min-width:70px;text-align:right}
+.order-total-row{display:flex;justify-content:space-between;font-size:16px;font-weight:700;color:var(--purple);margin-top:12px;padding-top:10px;border-top:2px solid rgba(59,30,142,0.12)}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;font-weight:600;color:var(--text-mid);margin-bottom:6px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 14px;border:1.5px solid rgba(59,30,142,0.15);border-radius:10px;font-size:14px;font-family:'Inter',sans-serif;color:var(--text-dark);background:var(--cream);outline:none;transition:border-color 0.2s;resize:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--purple-light)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.modal-actions{display:flex;gap:10px;margin-top:20px}
+.btn-cancel{flex:1;padding:13px;border:1.5px solid rgba(59,30,142,0.15);border-radius:10px;background:transparent;color:var(--text-muted);font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s}
+.btn-cancel:hover{border-color:var(--purple-light);color:var(--text-dark)}
+.btn-submit{flex:2;padding:13px;background:var(--purple);color:var(--white);border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-submit:hover{background:var(--purple-mid)}
+.btn-wa{background:#25D366;color:#fff;width:100%;padding:14px;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:10px;text-decoration:none}
+.btn-wa:hover{background:#1DAF57}
+.success-view{text-align:center;padding:24px 8px}
+.success-emoji{font-size:64px;margin-bottom:16px;display:block}
+.success-view h2{font-family:'Playfair Display',serif;font-size:28px;color:var(--purple);margin-bottom:10px}
+.success-view p{color:var(--text-muted);line-height:1.65;font-size:14px}
+.wa-note{font-size:12px;color:var(--text-muted);text-align:center;margin-top:8px;line-height:1.5}
+
+/* ── TEAM ── */
+.team-section{background:linear-gradient(145deg,#080218,#0F0438,#1A0A50);padding:96px 40px}
+.team-section .section-eye{color:rgba(240,196,74,0.75)}
+.team-section .section-title{color:var(--white)}
+.team-section .section-lead{color:rgba(255,255,255,0.5)}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;margin-top:48px}
+.team-card{background:rgba(255,255,255,0.04);border:1px solid rgba(200,149,42,0.15);border-radius:18px;padding:22px 14px;text-align:center;transition:all 0.22s}
+.team-card:hover{background:rgba(255,255,255,0.08);border-color:rgba(200,149,42,0.4);transform:translateY(-4px)}
+.team-card.newest{border-color:var(--gold);background:rgba(200,149,42,0.08)}
+.t-avatar{width:56px;height:56px;border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:var(--white);font-family:'Playfair Display',serif}
+.t-name{font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px}
+.t-role{font-size:11px;color:rgba(255,255,255,0.35)}
+.t-badge{font-size:10px;background:var(--gold);color:var(--purple-deep);padding:2px 8px;border-radius:100px;font-weight:700;margin-top:6px;display:inline-block}
+
+/* ── FOOTER ── */
+footer{background:#050110;padding:64px 40px 32px;text-align:center}
+.footer-a{font-family:'Playfair Display',serif;font-size:52px;font-weight:900;background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
+.footer-brand{font-family:'Playfair Display',serif;font-size:13px;color:rgba(255,255,255,0.3);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:8px}
+.footer-tag{font-size:13px;color:rgba(255,255,255,0.25);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:36px}
+.footer-links{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-bottom:32px}
+.footer-links a{font-size:14px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--gold-light)}
+.footer-event{font-size:14px;color:rgba(255,255,255,0.3);margin-bottom:32px;line-height:1.7}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.05);padding-top:24px;font-size:12px;color:rgba(255,255,255,0.15)}
+
+/* ── UTILS ── */
+section.pad{padding:96px 40px}
+.wrap{max-width:1100px;margin:0 auto}
+.eye{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px}
+.stitle{font-family:'Playfair Display',serif;font-size:clamp(30px,4.5vw,50px);font-weight:700;color:var(--text-dark);line-height:1.15;margin-bottom:16px}
+.slead{font-size:16px;color:var(--text-muted);line-height:1.7;max-width:580px}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:0.1s}.reveal-d2{transition-delay:0.2s}.reveal-d3{transition-delay:0.3s}.reveal-d4{transition-delay:0.4s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr}
+  .about-visual{display:none}
+}
+@media(max-width:700px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .about,.menu-section,.shop-section,.team-section,section.pad{padding:64px 20px}
+  .cart-bar{padding:12px 16px}
+  .cart-items-preview{display:none}
+  .modal{padding:24px 20px;border-radius:16px}
+  .form-row{grid-template-columns:1fr}
+  .countdown-bar{padding:10px 16px}
+  .event-card{flex-direction:column}
+  .event-date{padding:14px 20px;flex-direction:row;justify-content:center;gap:12px;align-items:center}
+  .hero-pillars{gap:8px}
+  .pillar{font-size:11px;padding:6px 14px}
+}
+@media(max-width:480px){
+  .stat-grid{grid-template-columns:1fr 1fr}
+  .menu-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  .shop-grid{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
+}
+</style>
+</head>
+<body>
+
+<!-- COUNTDOWN -->
+<div class="countdown-bar" id="cbar">
+  <p>🎉 Event opens in:</p>
+  <div class="countdown-units">
+    <div class="c-unit"><span id="cd-h">00</span><span>hrs</span></div>
+    <div class="c-unit"><span id="cd-m">00</span><span>min</span></div>
+    <div class="c-unit"><span id="cd-s">00</span><span>sec</span></div>
+  </div>
+  <p style="margin-left:4px">· Friday 19 June · LoveWorld School OPIC</p>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#home">
+    <div class="a-mark">A</div>
+    <div class="brand-name">ASTRAL</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Café</a></li>
+    <li><a href="#shop">Shop</a></li>
+    <li><a href="#team">Team</a></li>
+  </ul>
+  <a href="#menu" class="nav-cta" style="margin-right:12px">Order Now</a>
+  <button class="hamburger" id="hbg" onclick="toggleMobile()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#menu" onclick="closeMobile()">Café Menu</a>
+  <a href="#shop" onclick="closeMobile()">Shop</a>
+  <a href="#team" onclick="closeMobile()">The Team</a>
+  <a href="#menu" class="nav-cta" onclick="closeMobile()">Order Now →</a>
+</div>
+
+<!-- HERO -->
+<div class="hero" id="home">
+  <div class="stars-layer" id="starsLayer"></div>
+  <div class="moon"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Astral Presents</p>
+    <div class="hero-a-wrap">
+      <div class="hero-a">A</div>
+    </div>
+    <h1 class="hero-title">Dream <em>City</em></h1>
+    <p class="hero-tagline">Create &nbsp;✦&nbsp; Serve &nbsp;✦&nbsp; Shine</p>
+    <p class="hero-sub">A mall showcasing our passions, our products & our purpose — crafted by young entrepreneurs with big dreams.</p>
+    <div class="hero-pillars">
+      <div class="pillar">Handmade</div>
+      <div class="pillar">Café & Drinks</div>
+      <div class="pillar">Games</div>
+      <div class="pillar">Unique Finds</div>
+    </div>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-gold">Browse & Order →</a>
+      <a href="#about" class="btn-outline">Our Story</a>
+    </div>
+    <div class="event-card">
+      <div class="event-date">
+        <div class="d-num">19</div>
+        <div class="d-month">June 2026</div>
+      </div>
+      <div class="event-info">
+        <div class="event-day">Friday</div>
+        <div class="event-venue">LoveWorld School</div>
+        <div class="event-loc">OPIC Estate, Ogun State</div>
+      </div>
+    </div>
+    <div class="gift-banner">🎁 First 10 visitors get an exclusive gift — come early!</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap">
+    <p class="eye reveal">Who We Are</p>
+    <h2 class="stitle reveal reveal-d1">More than a business.<br>A movement.</h2>
+    <p class="slead reveal reveal-d2">We are the Astral Team — 13 young entrepreneurs from LoveWorld School who turned a school project into a full experience. We create, we serve, we shine.</p>
+    <div class="about-grid">
+      <div>
+        <div class="stat-grid reveal reveal-d1">
+          <div class="stat-card"><div class="stat-num">13</div><div class="stat-label">Team Members</div></div>
+          <div class="stat-card"><div class="stat-num">20+</div><div class="stat-label">Products & Menu Items</div></div>
+          <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Gelato Flavours</div></div>
+          <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Slushy Flavours</div></div>
+        </div>
+        <ul class="feature-list reveal reveal-d2">
+          <li><div class="fdot"></div>Everything handmade by us — from bracelets to cupcakes and gelato</li>
+          <li><div class="fdot"></div>Freshly made gelato ice cream in 4 flavours, properly stored and ready</li>
+          <li><div class="fdot"></div>Boba drinks, slushies in 4 flavours, fresh fruit juice & zobo</li>
+          <li><div class="fdot"></div>Full café with burgers, shawarma, waffles, cinnamon rolls & more</li>
+          <li><div class="fdot"></div>Games, interactive activities & unique finds you won't see anywhere else</li>
+          <li><div class="fdot"></div>Exclusive gift for the first 10 visitors to our mall!</div></li>
+        </ul>
+      </div>
+      <div class="about-visual reveal reveal-d2">
+        <div class="av-a">A</div>
+        <div class="av-label">Come. Explore. Support.<br>Be Part of the Dream.</div>
+        <div class="av-pillars">
+          <div class="av-pill">Create</div>
+          <div class="av-pill">Serve</div>
+          <div class="av-pill">Shine</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAFÉ MENU -->
+<section class="menu-section" id="menu">
+  <div class="wrap">
+    <p class="eye reveal">The Astral Café</p>
+    <h2 class="stitle reveal reveal-d1">Everything tastes better<br>when made with heart.</h2>
+    <p class="slead reveal reveal-d2">From freshly baked pastries to gelato and boba — our café menu was crafted, cooked, and served entirely by us.</p>
+    <div class="menu-tabs reveal reveal-d1">
+      <button class="tab-btn active" onclick="showTab('food',this)">🍔 Food</button>
+      <button class="tab-btn" onclick="showTab('gelato',this)">🍦 Gelato</button>
+      <button class="tab-btn" onclick="showTab('slushies',this)">🧊 Slushies</button>
+      <button class="tab-btn" onclick="showTab('boba',this)">🧋 Boba</button>
+      <button class="tab-btn" onclick="showTab('drinks',this)">🥤 Drinks</button>
+    </div>
+    <div id="tab-food" class="tab-panel active"><div class="menu-grid" id="food-grid"></div></div>
+    <div id="tab-gelato" class="tab-panel"><div class="menu-grid" id="gelato-grid"></div></div>
+    <div id="tab-slushies" class="tab-panel"><div class="menu-grid" id="slushies-grid"></div></div>
+    <div id="tab-boba" class="tab-panel"><div class="menu-grid" id="boba-grid"></div></div>
+    <div id="tab-drinks" class="tab-panel"><div class="menu-grid" id="drinks-grid"></div></div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section class="shop-section" id="shop">
+  <div class="wrap">
+    <p class="eye reveal">The Astral Shop</p>
+    <h2 class="stitle reveal reveal-d1">Handmade with love,<br>worn with pride.</h2>
+    <p class="slead reveal reveal-d2">Every item was made or carefully curated by our team. Each piece carries a piece of us.</p>
+    <div class="shop-grid" id="shop-grid"></div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section" id="team">
+  <div class="wrap">
+    <p class="eye reveal">The Dream Makers</p>
+    <h2 class="stitle reveal reveal-d1" style="color:var(--white)">Meet the Astral Team</h2>
+    <p class="slead reveal reveal-d2" style="color:rgba(255,255,255,0.5)">13 young builders. One shared vision. Proud of every single one of us.</p>
+    <div class="team-grid" id="team-grid"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-a">A</div>
+  <div class="footer-brand">Astral</div>
+  <div class="footer-tag">Create &nbsp;✦&nbsp; Serve &nbsp;✦&nbsp; Shine</div>
+  <div class="footer-links">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#menu">Café Menu</a>
+    <a href="#shop">Shop</a>
+    <a href="#team">Our Team</a>
+  </div>
+  <p class="footer-event">📍 LoveWorld School, OPIC Estate, Ogun State<br>Friday 19th June 2026 &nbsp;·&nbsp; 🎁 Gifts for first 10 visitors</p>
+  <div class="footer-bottom">Astral Dream City &nbsp;·&nbsp; BASA 2026 &nbsp;·&nbsp; Built with 💜 by the Astral Team</div>
+</footer>
+
+<!-- CART BAR -->
+<div class="cart-bar" id="cartBar">
+  <div class="cart-left">
+    <div class="cart-icon">🛍️</div>
+    <div>
+      <div class="cart-info"><strong id="cartCount">0</strong> items in your order</div>
+      <div class="cart-items-preview" id="cartPreview"></div>
+    </div>
+  </div>
+  <div class="cart-right">
+    <div>
+      <div class="cart-total-label">Total</div>
+      <div class="cart-total-amt" id="cartTotal">₦0</div>
+    </div>
+    <button class="cart-clear" onclick="clearCart()">Clear</button>
+    <button class="cart-cta" onclick="openModal()">Order Now →</button>
+  </div>
+</div>
+
+<!-- ORDER MODAL -->
+<div class="overlay" id="overlay" onclick="overlayClick(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+
+    <!-- FORM STATE -->
+    <div id="formView">
+      <h2>Place Your Order</h2>
+      <p class="modal-sub">Confirm your items below, fill in your details, and we'll have it ready at the event!</p>
+      <div class="order-summary">
+        <h3>Your Order</h3>
+        <div id="orderItems"></div>
+        <div class="order-total-row">
+          <span>Total</span>
+          <span id="modalTotal">₦0</span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name *</label>
+          <input type="text" id="custName" placeholder="e.g. Amaka Johnson">
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" id="custPhone" placeholder="e.g. 08012345678">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Pickup Time Preference</label>
+        <select id="custTime">
+          <option value="">Choose a time...</option>
+          <option>Upon arrival</option>
+          <option>10:00 AM</option>
+          <option>11:00 AM</option>
+          <option>12:00 PM</option>
+          <option>1:00 PM</option>
+          <option>2:00 PM</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Special requests (optional)</label>
+        <textarea id="custNote" rows="2" placeholder="e.g. No nuts, extra sauce, specific flavour..."></textarea>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+        <button class="btn-submit" id="submitBtn" onclick="placeOrder()">
+          Place Order →
+        </button>
+      </div>
+      <p class="wa-note">Your order will be sent to the Astral Team. Come to LoveWorld School OPIC on 19th June to pick up and pay!</p>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div id="successView" style="display:none">
+      <div class="success-view">
+        <span class="success-emoji">🎉</span>
+        <h2>Order Received!</h2>
+        <p>Your order has been sent to the Astral Team! We'll confirm it shortly.<br><br>See you at <strong>LoveWorld School OPIC</strong> on <strong>Friday 19th June</strong> to pick up your items. We can't wait to serve you! 💜✨</p>
+        <a href="#home" class="btn-wa" style="margin-top:24px;border-radius:10px;text-decoration:none" onclick="closeModal()">Back to Astral Dream City</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── DATA ── */
+const WHATSAPP_NUMBER = '2349022809119'; // BASA team WhatsApp number (no + or spaces)
+
+const menuData = {
+  food:[
+    {e:'🍔',n:'Beef Burgers & Fries',p:3000},
+    {e:'🧇',n:'Waffles with Omelette/Scrambled Eggs & Drumsticks',p:3000},
+    {e:'🌯',n:'Chicken Suya Shawarma',p:1500},
+    {e:'🍩',n:'Doughnuts',p:700},
+    {e:'🥧',n:'Meat Pies',p:700},
+    {e:'🥐',n:'Cinnamon Rolls',p:700},
+    {e:'🥙',n:'Small Chops',p:1500},
+    {e:'🍦',n:'Ice Cream & Waffles',p:1500},
+    {e:'🧁',n:'Cupcakes',p:700},
+  ],
+  gelato:[
+    {e:'🥭',n:'Mango Gelato',p:1000},
+    {e:'🍓',n:'Strawberry Gelato',p:1000},
+    {e:'🍫',n:'Chocolate Gelato',p:1000},
+    {e:'🍦',n:'Vanilla Gelato',p:1000},
+  ],
+  slushies:[
+    {e:'🍓',n:'Strawberry Rush Slushy',p:1500},
+    {e:'🥭',n:'Mango Blast Slushy',p:1500},
+    {e:'💙',n:'Blue Galaxy Slushy',p:1500},
+    {e:'🍋',n:'Citrus Storm Slushy',p:1500},
+  ],
+  boba:[
+    {e:'🍓',n:'Strawberry Boba',p:2000},
+    {e:'🍫',n:'Chocolate Boba',p:2000},
+    {e:'🫐',n:'Blueberry Boba',p:2000},
+  ],
+  drinks:[
+    {e:'🍊',n:'Fresh Fruit Juice',p:800},
+    {e:'🌺',n:'Zobo',p:700},
+  ]
+};
+
+const shopData = [
+  {e:'📿',tag:'Handmade',n:'Beaded Bracelets',d:'Beautifully handcrafted — colourful and unique.',p:600},
+  {e:'🎀',tag:'Handmade',n:'Scrunchies',d:'Fabric scrunchies in various colours and patterns.',p:500},
+  {e:'👜',tag:'Handmade',n:'Handmade Bags',d:'Crafted with care — stylish and practical.',p:2500},
+  {e:'👕',tag:'Handmade',n:'Custom Shirts & Shorts',d:'One-of-a-kind pieces made by our team.',p:3500},
+  {e:'💄',tag:'Beauty',n:'Chapstick',d:'Nourishing lip care in fun packaging.',p:400},
+  {e:'🩹',tag:'Beauty',n:'Pimple Patches',d:'Gentle and effective for clear skin days.',p:500},
+  {e:'🎀',tag:'Accessories',n:'Headbands & Hair Clips',d:'Fun, trendy hair accessories for every style.',p:500},
+  {e:'🧣',tag:'Fashion',n:'Bandanas',d:'Versatile bandanas in vibrant prints.',p:700},
+  {e:'🧻',tag:'Essentials',n:'Can Wipes',d:'Handy pocket wipes for on-the-go freshness.',p:300},
+  {e:'✨',tag:'Collectibles',n:'Anime Stickers',d:'Fun anime stickers — collect them all!',p:200},
+];
+
+const teamData = [
+  {n:'Gratia Kanu',c:'#7C3AED'},{n:'Kayla Ihesiaba',c:'#9333EA'},{n:'Sonia Arebo',c:'#6D28D9'},
+  {n:'Deborah Abusomwan',c:'#7C3AED'},{n:'Lauren Aisabokhae',c:'#5B21B6'},{n:'Iremide Azeez',c:'#8B5CF6'},
+  {n:'Zion',c:'#4C1D95'},{n:'Joanna',c:'#7C3AED'},{n:'Whitney Okpala',c:'#6D28D9'},
+  {n:'Jardel Adamu',c:'#5B21B6'},{n:'Dominion Eka',c:'#8B5CF6'},{n:'Benedict',c:'#9333EA'},
+  {n:'Kaiyah',c:'#C8952A',newest:true}
+];
+
+/* ── CART ── */
+let cart = [];
+function fmt(n){return '₦'+n.toLocaleString()}
+function ini(name){return name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase()}
+
+function addMenu(cat,idx){
+  const item=menuData[cat][idx];
+  addToCart(item.n,item.p,'menu-'+cat+'-'+idx);
+}
+function addShop(idx){
+  const item=shopData[idx];
+  addToCart(item.n,item.p,'shop-'+idx);
+}
+function addToCart(name,price,id){
+  const ex=cart.find(c=>c.n===name);
+  if(ex){ex.q++;}else{cart.push({n:name,p:price,q:1,id});}
+  updateCartUI();
+  flashAdd(id);
+}
+function removeFromCart(name){
+  const i=cart.findIndex(c=>c.n===name);
+  if(i!==-1){if(cart[i].q>1){cart[i].q--;}else{cart.splice(i,1);}}
+  updateCartUI();
+}
+function clearCart(){cart=[];updateCartUI();}
+
+function flashAdd(id){
+  const badge=document.getElementById('badge-'+id);
+  if(badge){badge.classList.add('show');setTimeout(()=>badge.classList.remove('show'),1500);}
+}
+
+function updateCartUI(){
+  const total=cart.reduce((s,c)=>s+c.p*c.q,0);
+  const count=cart.reduce((s,c)=>s+c.q,0);
+  document.getElementById('cartCount').textContent=count;
+  document.getElementById('cartTotal').textContent=fmt(total);
+  const bar=document.getElementById('cartBar');
+  bar.classList.toggle('show',count>0);
+  const preview=document.getElementById('cartPreview');
+  preview.innerHTML=cart.slice(0,3).map(c=>`
+    <div class="cart-chip">${c.n.split(' ').slice(0,2).join(' ')} ×${c.q}
+      <button onclick="removeFromCart('${c.n.replace(/'/g,"\\'")}')">✕</button>
+    </div>
+  `).join('')+(cart.length>3?`<div class="cart-chip">+${cart.length-3} more</div>`:'');
+}
+
+/* ── RENDER MENU ── */
+function renderMenu(){
+  Object.entries(menuData).forEach(([cat,items])=>{
+    const g=document.getElementById(cat+'-grid');
+    g.innerHTML=items.map((item,i)=>{
+      const id='menu-'+cat+'-'+i;
+      return `<div class="menu-card">
+        <span id="badge-${id}" class="menu-badge">Added!</span>
+        <button class="menu-add" onclick="addMenu('${cat}',${i})" title="Add to order">+</button>
+        <span class="menu-emoji">${item.e}</span>
+        <div class="menu-name">${item.n}</div>
+        <div class="menu-cat">${cat.charAt(0).toUpperCase()+cat.slice(1)}</div>
+        <div class="menu-price">${fmt(item.p)}</div>
+      </div>`;
+    }).join('');
+  });
+}
+
+/* ── RENDER SHOP ── */
+function renderShop(){
+  const g=document.getElementById('shop-grid');
+  g.innerHTML=shopData.map((item,i)=>{
+    const id='shop-'+i;
+    return `<div class="shop-card reveal reveal-d${(i%4)+1}">
+      <div class="shop-img">${item.e}</div>
+      <div class="shop-info">
+        <div class="shop-tag">${item.tag}</div>
+        <div class="shop-name">${item.n}</div>
+        <div class="shop-desc">${item.d}</div>
+        <div class="shop-row">
+          <div class="shop-price">${fmt(item.p)}</div>
+          <button class="shop-btn" onclick="addShop(${i})" id="badge-${id}">Add +</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  observeReveal();
+}
+
+/* ── RENDER TEAM ── */
+function renderTeam(){
+  const g=document.getElementById('team-grid');
+  g.innerHTML=teamData.map((m,i)=>`
+    <div class="team-card reveal reveal-d${(i%4)+1}${m.newest?' newest':''}">
+      <div class="t-avatar" style="background:${m.c}">${ini(m.n)}</div>
+      <div class="t-name">${m.n}</div>
+      <div class="t-role">Team Astral</div>
+      ${m.newest?'<div class="t-badge">Newest Member ✨</div>':''}
+    </div>
+  `).join('');
+  observeReveal();
+}
+
+/* ── TABS ── */
+function showTab(tab,btn){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* ── MODAL ── */
+function openModal(){
+  if(cart.length===0)return;
+  const total=cart.reduce((s,c)=>s+c.p*c.q,0);
+  document.getElementById('orderItems').innerHTML=cart.map(c=>`
+    <div class="order-item-row">
+      <span class="oi-name">${c.n}</span>
+      <div class="oi-qty">
+        <button onclick="modalQty('${c.n.replace(/'/g,"\\'")}','dec')">−</button>
+        <span>${c.q}</span>
+        <button onclick="modalQty('${c.n.replace(/'/g,"\\'")}','inc')">+</button>
+      </div>
+      <span class="oi-price">${fmt(c.p*c.q)}</span>
+    </div>
+  `).join('');
+  document.getElementById('modalTotal').textContent=fmt(total);
+  document.getElementById('formView').style.display='block';
+  document.getElementById('successView').style.display='none';
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function overlayClick(e){if(e.target===document.getElementById('overlay'))closeModal();}
+function modalQty(name,dir){
+  if(dir==='inc')addToCart(name,cart.find(c=>c.n===name)?.p||0,'');
+  else removeFromCart(name);
+  openModal();
+}
+
+/* ── PLACE ORDER (email) ── */
+async function placeOrder(){
+  const name=document.getElementById('custName').value.trim();
+  const phone=document.getElementById('custPhone').value.trim();
+  if(!name){document.getElementById('custName').focus();alert('Please enter your name.');return;}
+  if(!phone){document.getElementById('custPhone').focus();alert('Please enter your phone number.');return;}
+  const time=document.getElementById('custTime').value||'Not specified';
+  const note=document.getElementById('custNote').value.trim();
+  const total=cart.reduce((s,c)=>s+c.p*c.q,0);
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true;const old=btn.textContent;btn.textContent='Sending…';
+  try{
+    const res=await fetch('/api/order',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name,phone,time,note,total,items:cart})
+    });
+    const data=await res.json().catch(()=>({}));
+    if(!res.ok||data.ok===false){throw new Error((data&&data.error)||'Server error');}
+    document.getElementById('formView').style.display='none';
+    document.getElementById('successView').style.display='block';
+    cart=[];updateCartUI();
+  }catch(err){
+    alert('Sorry, your order could not be sent right now. Please try again.\n\n'+err.message);
+  }finally{
+    btn.disabled=false;btn.textContent=old;
+  }
+}
+
+/* ── MOBILE NAV ── */
+function toggleMobile(){
+  const hbg=document.getElementById('hbg');
+  const mm=document.getElementById('mobileMenu');
+  hbg.classList.toggle('open');
+  mm.classList.toggle('open');
+}
+function closeMobile(){
+  document.getElementById('hbg').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+/* ── COUNTDOWN ── */
+function runCountdown(){
+  const event=new Date('2026-06-19T09:00:00+01:00').getTime();
+  function tick(){
+    const now=Date.now();
+    const diff=event-now;
+    if(diff<=0){document.getElementById('cbar').innerHTML='<p>🎉 The event is happening NOW! Come to LoveWorld School OPIC!</p>';return;}
+    const h=Math.floor(diff/(1000*3600));
+    const m=Math.floor((diff%(1000*3600))/(1000*60));
+    const s=Math.floor((diff%(1000*60))/1000);
+    document.getElementById('cd-h').textContent=String(h).padStart(2,'0');
+    document.getElementById('cd-m').textContent=String(m).padStart(2,'0');
+    document.getElementById('cd-s').textContent=String(s).padStart(2,'0');
+  }
+  tick();setInterval(tick,1000);
+}
+
+/* ── STARS ── */
+(function(){
+  const c=document.getElementById('starsLayer');
+  for(let i=0;i<90;i++){
+    const s=document.createElement('div');
+    s.className='star';
+    const sz=Math.random()*2.5+0.5;
+    s.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--dur:${2+Math.random()*3}s;--del:${Math.random()*4}s`;
+    c.appendChild(s);
+  }
+})();
+
+/* ── SCROLL REVEAL ── */
+function observeReveal(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+}
+
+/* ── INIT ── */
+renderMenu();
+renderShop();
+renderTeam();
+runCountdown();
+observeReveal();
+</script>
+</body>
+</html>
